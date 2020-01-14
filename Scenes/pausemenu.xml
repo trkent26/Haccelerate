@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<resource_file type="PackedScene" subresource_count="7" version="2.1" version_name="Godot Engine v2.1.stable.official">
+	<ext_resource path="res://Assets/Scripts/menuofpauseredo.gd" type="Script" index="0"></ext_resource>
+	<ext_resource path="res://Assets/Sounds/menuenter.smp" type="Sample" index="3"></ext_resource>
+	<ext_resource path="res://Assets/Sounds/menumoveLONG.smp" type="Sample" index="4"></ext_resource>
+	<ext_resource path="res://Assets/Sprites/Static/Menu Arrow.png" type="Texture" index="2"></ext_resource>
+	<ext_resource path="res://Assets/Sprites/Static/Pause Menu.png" type="Texture" index="1"></ext_resource>
+	<resource type="SampleLibrary" path="local://1">
+		<dictionary name="samples/menuenter" shared="false">
+			<string> "db" </string>
+			<real> 0 </real>
+			<string> "pitch" </string>
+			<real> 1 </real>
+			<string> "sample" </string>
+			<resource  external="3">  </resource>
+		</dictionary>
+		<dictionary name="samples/menumove" shared="false">
+			<string> "db" </string>
+			<real> 0 </real>
+			<string> "pitch" </string>
+			<real> 1 </real>
+			<string> "sample" </string>
+			<resource  external="4">  </resource>
+		</dictionary>
+
+	</resource>
+	<main_resource>
+		<dictionary name="_bundled" shared="false">
+			<string> "conn_count" </string>
+			<int> 0 </int>
+			<string> "conns" </string>
+			<int_array  len="0"> 				 </int_array>
+			<string> "editable_instances" </string>
+			<array  len="0" shared="false">
+			</array>
+			<string> "names" </string>
+			<string_array  len="33">
+				<string> "PauseMenu" </string>
+				<string> "process/pause_mode" </string>
+				<string> "visibility/opacity" </string>
+				<string> "script/script" </string>
+				<string> "__meta__" </string>
+				<string> "Node2D" </string>
+				<string> "MenuScreen" </string>
+				<string> "layer" </string>
+				<string> "offset" </string>
+				<string> "rotation" </string>
+				<string> "scale" </string>
+				<string> "CanvasLayer" </string>
+				<string> "Menu" </string>
+				<string> "transform/pos" </string>
+				<string> "texture" </string>
+				<string> "Sprite" </string>
+				<string> "Arrow" </string>
+				<string> "PauseMenuSFX" </string>
+				<string> "config/polyphony" </string>
+				<string> "config/samples" </string>
+				<string> "default/volume_db" </string>
+				<string> "default/pitch_scale" </string>
+				<string> "default/pan" </string>
+				<string> "default/depth" </string>
+				<string> "default/height" </string>
+				<string> "default/filter/type" </string>
+				<string> "default/filter/cutoff" </string>
+				<string> "default/filter/resonance" </string>
+				<string> "default/filter/gain" </string>
+				<string> "default/reverb_room" </string>
+				<string> "default/reverb_send" </string>
+				<string> "default/chorus_send" </string>
+				<string> "SamplePlayer" </string>
+			</string_array>
+			<string> "node_count" </string>
+			<int> 5 </int>
+			<string> "node_paths" </string>
+			<array  len="0" shared="false">
+			</array>
+			<string> "nodes" </string>
+			<int_array  len="87"> 				-1, -1, 5, 0, -1, 4, 1, 0, 2, 1, 3, 2, 4, 3, 0, 0, 0, 11, 6, -1, 4, 7, 4, 8, 5, 9, 6, 10, 7, 0, 1, 0, 15, 12, -1, 2, 13, 8, 14, 9, 0, 1, 0, 15, 16, -1, 2, 13, 10, 14, 11, 0, 0, 0, 32, 17, -1, 14, 18, 4, 19, 12, 20, 6, 21, 13, 22, 6, 23, 6, 24, 6, 25, 14, 26, 15, 27, 13, 28, 13, 29, 0, 30, 6, 31, 6, 0 </int_array>
+			<string> "variants" </string>
+			<array  len="16" shared="false">
+				<int> 2 </int>
+				<real> 0.5 </real>
+				<resource  external="0">  </resource>
+				<dictionary  shared="false">
+					<string> "_edit_lock_" </string>
+					<bool> True </bool>
+				</dictionary>
+				<int> 1 </int>
+				<vector2> 0, 0 </vector2>
+				<real> 0 </real>
+				<vector2> 1, 1 </vector2>
+				<vector2> 528, 287 </vector2>
+				<resource  external="1">  </resource>
+				<vector2> 424, 248 </vector2>
+				<resource  external="2">  </resource>
+				<resource  resource_type="SampleLibrary" path="local://1">  </resource>
+				<real> 1 </real>
+				<int> 0 </int>
+				<real> 5000 </real>
+			</array>
+			<string> "version" </string>
+			<int> 2 </int>
+		</dictionary>
+
+	</main_resource>
+</resource_file>

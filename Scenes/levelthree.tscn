@@ -1,0 +1,2926 @@
+[gd_scene load_steps=102 format=1]
+
+[ext_resource path="res://Assets/Scripts/levelthree.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Scripts/brainofjack3.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Sprites/Animated/Big Animations Main Char1.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Scripts/jacksprite.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Sounds/jump.smp" type="Sample" id=5]
+[ext_resource path="res://Assets/Sounds/lifeup.smp" type="Sample" id=6]
+[ext_resource path="res://Assets/Sounds/playerdeath.smp" type="Sample" id=7]
+[ext_resource path="res://Assets/Sounds/shoot.smp" type="Sample" id=8]
+[ext_resource path="res://Assets/Sounds/takedamage.smp" type="Sample" id=9]
+[ext_resource path="res://Assets/Sounds/enemydeath.smp" type="Sample" id=10]
+[ext_resource path="res://Assets/Scripts/boom.gd" type="Script" id=11]
+[ext_resource path="res://Assets/Sprites/Static/Floor small.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Sprites/Static/Floor Fill.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Sprites/Static/Floor Tall.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Sprites/Static/Floor Edge Left.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Sprites/Static/Floor Edge Right.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Sprites/Animated/Warp Zone.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Scripts/HealthPickup.gd" type="Script" id=18]
+[ext_resource path="res://Assets/Sprites/Animated/Health Pickup.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Scripts/HealthPickup1.gd" type="Script" id=20]
+[ext_resource path="res://Assets/Scripts/HealthPickup2.gd" type="Script" id=21]
+[ext_resource path="res://Assets/Scripts/HealthPickup3.gd" type="Script" id=22]
+[ext_resource path="res://Assets/Scripts/HealthPickup4.gd" type="Script" id=23]
+[ext_resource path="res://Assets/Scripts/errorMessage.gd" type="Script" id=24]
+[ext_resource path="res://Assets/Sprites/Animated/Enemy Health 5.png" type="Texture" id=25]
+[ext_resource path="res://Assets/Sprites/Animated/Error Message Enemy.png" type="Texture" id=26]
+[ext_resource path="res://Assets/Scripts/ErrorMessageSprite.gd" type="Script" id=27]
+[ext_resource path="res://Assets/Scripts/ErrorMessage1.gd" type="Script" id=28]
+[ext_resource path="res://Assets/Scripts/ErrorMessageSprite1.gd" type="Script" id=29]
+[ext_resource path="res://Assets/Scripts/cursor.gd" type="Script" id=30]
+[ext_resource path="res://Assets/Sprites/Animated/Mouse&Hourglass Enemy.png" type="Texture" id=31]
+[ext_resource path="res://Assets/Scripts/cursorSprite.gd" type="Script" id=32]
+[ext_resource path="res://Assets/Scripts/cursor1.gd" type="Script" id=33]
+[ext_resource path="res://Assets/Scripts/cursorSprite1.gd" type="Script" id=34]
+[ext_resource path="res://Assets/Scripts/wiresGuy.gd" type="Script" id=35]
+[ext_resource path="res://Assets/Sprites/Animated/Enemy Health 3.png" type="Texture" id=36]
+[ext_resource path="res://Assets/Sprites/Animated/Tangled Wires Animation.png" type="Texture" id=37]
+[ext_resource path="res://Assets/Scripts/WiresSprite.gd" type="Script" id=38]
+[ext_resource path="res://Assets/Scripts/virus.gd" type="Script" id=39]
+[ext_resource path="res://Assets/Sprites/Animated/Virus Enemy.png" type="Texture" id=40]
+[ext_resource path="res://Assets/Scripts/virusSprite.gd" type="Script" id=41]
+[ext_resource path="res://Assets/Sprites/Static/Background 3.png" type="Texture" id=42]
+[ext_resource path="res://Assets/Sounds/basic.ogg" type="AudioStream" id=43]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10.9417, 10.3203 )
+
+[sub_resource type="Animation" id=2]
+
+resource/name = "DamageFalling"
+length = 0.4
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.1, 0.2 ), "transitions":FloatArray( 1, 1, 1 ), "update":1, "values":[ 89, 90, 91 ] }
+
+[sub_resource type="Animation" id=3]
+
+resource/name = "DamageFallingLeft"
+length = 0.4
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.1, 0.2 ), "transitions":FloatArray( 1, 1, 1 ), "update":1, "values":[ 89, 90, 91 ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:flip_h")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ true ] }
+
+[sub_resource type="Animation" id=4]
+
+resource/name = "DamageFallingRight"
+length = 0.4
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.1, 0.2 ), "transitions":FloatArray( 1, 1, 1 ), "update":1, "values":[ 89, 90, 91 ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:flip_h")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ false ] }
+
+[sub_resource type="Animation" id=5]
+
+resource/name = "DamageIdle"
+length = 0.3
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.1, 0.2 ), "transitions":FloatArray( 1, 1, 1 ), "update":1, "values":[ 112, 113, 114 ] }
+
+[sub_resource type="Animation" id=6]
+
+length = 0.3
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:flip_h")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ true ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 0.1, 0.2 ), "transitions":FloatArray( 1, 1, 1 ), "update":1, "values":[ 65, 66, 67 ] }
+
+[sub_resource type="Animation" id=7]
+
+length = 0.3
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:flip_h")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ false ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 0.1, 0.2 ), "transitions":FloatArray( 1, 1, 1 ), "update":1, "values":[ 65, 66, 67 ] }
+
+[sub_resource type="Animation" id=8]
+
+length = 4.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4, 4.1, 4.2, 4.3, 4.4 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ), "update":1, "values":[ 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64 ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:flip_h")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ true ] }
+
+[sub_resource type="Animation" id=9]
+
+length = 4.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4, 4.1, 4.2, 4.3, 4.4 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ), "update":1, "values":[ 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64 ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:flip_h")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ false ] }
+
+[sub_resource type="Animation" id=10]
+
+length = 0.6
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1 ), "update":1, "values":[ 14, 15, 16, 17, 18, 19 ] }
+
+[sub_resource type="Animation" id=11]
+
+length = 0.6
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1 ), "update":1, "values":[ 14, 15, 16, 17, 18, 19 ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:flip_h")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ true ] }
+
+[sub_resource type="Animation" id=12]
+
+length = 0.6
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1 ), "update":1, "values":[ 14, 15, 16, 17, 18, 19 ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:flip_h")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ false ] }
+
+[sub_resource type="Animation" id=13]
+
+length = 0.8
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1, 1, 1 ), "update":1, "values":[ 6, 7, 8, 9, 10, 11, 12, 13 ] }
+
+[sub_resource type="Animation" id=14]
+
+length = 0.8
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1, 1, 1 ), "update":1, "values":[ 6, 7, 8, 9, 10, 11, 12, 13 ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:flip_h")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ true ] }
+
+[sub_resource type="Animation" id=15]
+
+length = 0.8
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1, 1, 1 ), "update":1, "values":[ 6, 7, 8, 9, 10, 11, 12, 13 ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:flip_h")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ false ] }
+
+[sub_resource type="Animation" id=16]
+
+length = 2.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ), "update":1, "values":[ 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111 ] }
+
+[sub_resource type="Animation" id=17]
+
+length = 2.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ), "update":1, "values":[ 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111 ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:flip_h")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ true ] }
+
+[sub_resource type="Animation" id=18]
+
+length = 2.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ), "update":1, "values":[ 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111 ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:flip_h")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ false ] }
+
+[sub_resource type="Animation" id=19]
+
+length = 2.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ), "update":1, "values":[ 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134 ] }
+
+[sub_resource type="Animation" id=20]
+
+length = 2.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:flip_h")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ true ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.9, 1, 1.1, 1.2, 1.3, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.8, 1.9 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ), "update":1, "values":[ 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 124, 125, 126, 127, 128, 128, 129, 130, 131, 132, 133, 133, 134 ] }
+
+[sub_resource type="Animation" id=21]
+
+length = 2.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:flip_h")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ false ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ), "update":1, "values":[ 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134 ] }
+
+[sub_resource type="Animation" id=22]
+
+length = 2.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ), "update":1, "values":[ 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88 ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:flip_h")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ true ] }
+
+[sub_resource type="Animation" id=23]
+
+length = 2.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ), "update":1, "values":[ 70, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88 ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:flip_h")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ false ] }
+
+[sub_resource type="Animation" id=24]
+
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ 135 ] }
+
+[sub_resource type="Animation" id=25]
+
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ 135 ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:flip_h")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ true ] }
+
+[sub_resource type="Animation" id=26]
+
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ 135 ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:flip_h")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ false ] }
+
+[sub_resource type="Animation" id=27]
+
+length = 0.6
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:flip_h")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ true ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1 ), "update":1, "values":[ 0, 1, 2, 3, 4, 5 ] }
+
+[sub_resource type="Animation" id=28]
+
+length = 0.6
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:flip_h")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ false ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1 ), "update":1, "values":[ 0, 1, 2, 3, 4, 5 ] }
+
+[sub_resource type="Animation" id=29]
+
+length = 1.0
+loop = false
+step = 0.1
+
+[sub_resource type="SampleLibrary" id=30]
+
+samples/jump = { "db":0.0, "pitch":1.0, "sample":ExtResource( 5 ) }
+samples/lifeup = { "db":0.0, "pitch":1.0, "sample":ExtResource( 6 ) }
+samples/playerdeath = { "db":0.0, "pitch":1.0, "sample":ExtResource( 7 ) }
+samples/shoot = { "db":0.0, "pitch":1.0, "sample":ExtResource( 8 ) }
+samples/takedamage = { "db":0.0, "pitch":1.0, "sample":ExtResource( 9 ) }
+
+[sub_resource type="SampleLibrary" id=31]
+
+samples/enemydeath = { "db":0.0, "pitch":1.0, "sample":ExtResource( 10 ) }
+
+[sub_resource type="RectangleShape2D" id=32]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 7.75483 )
+
+[sub_resource type="RectangleShape2D" id=33]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[sub_resource type="Animation" id=34]
+
+length = 1.4
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ), "update":1, "values":[ 0, 0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 ] }
+
+[sub_resource type="Animation" id=35]
+
+length = 0.6
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1 ), "update":1, "values":[ 0, 0, 2, 3, 4, 5 ] }
+
+[sub_resource type="Animation" id=36]
+
+length = 1.5
+loop = true
+step = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1, 1, 1 ), "update":1, "values":[ 5, 6, 7, 8, 9, 10, 11, 12 ] }
+
+[sub_resource type="Curve2D" id=37]
+
+bake_interval = 5.0
+_data = { "points":Vector2Array( 0, 0, 0, 0, -0.227921, 0.449837, 0, 0, 0, 0, -316.982, -297.91, 0, 0, 0, 0, -0.191772, 0.36734 ) }
+
+[sub_resource type="RectangleShape2D" id=38]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[sub_resource type="Animation" id=39]
+
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ 5 ] }
+
+[sub_resource type="Animation" id=40]
+
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ 4 ] }
+
+[sub_resource type="Animation" id=41]
+
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ 3 ] }
+
+[sub_resource type="Animation" id=42]
+
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ 2 ] }
+
+[sub_resource type="Animation" id=43]
+
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ 1 ] }
+
+[sub_resource type="Animation" id=44]
+
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ 0 ] }
+
+[sub_resource type="Animation" id=45]
+
+length = 1.2
+loop = false
+step = 0.08
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.08, 0.16, 0.24, 0.32, 0.4, 0.48, 0.56, 0.64, 0.72, 0.8, 0.88, 0.96, 1.04, 1.12 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ), "update":1, "values":[ 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 ] }
+
+[sub_resource type="Animation" id=46]
+
+length = 0.7
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1, 1 ), "update":1, "values":[ 0, 1, 2, 3, 4, 5, 6 ] }
+
+[sub_resource type="Curve2D" id=47]
+
+bake_interval = 5.0
+_data = { "points":Vector2Array( 0, 0, 0, 0, -3.32974, 1.11549, 0, 0, 0, 0, -3.95451, -152.751, 0, 0, 0, 0, -3.59326, 1.11549 ) }
+
+[sub_resource type="Curve2D" id=48]
+
+bake_interval = 5.0
+_data = { "points":Vector2Array( 0, 0, 0, 0, -0.934036, -0.144028, 0, 0, 0, 0, -315.758, -0.239746, 0, 0, 0, 0, -1.19757, -0.143982 ) }
+
+[sub_resource type="Curve2D" id=49]
+
+bake_interval = 5.0
+_data = { "points":Vector2Array( 0, 0, 0, 0, 1.03905, -2.13465, 0, 0, 0, 0, -362.618, -2.18433, 0, 0, 0, 0, 0.952156, -2.17162 ) }
+
+[sub_resource type="Animation" id=50]
+
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ 3 ] }
+
+[sub_resource type="Animation" id=51]
+
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ 2 ] }
+
+[sub_resource type="Animation" id=52]
+
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ 1 ] }
+
+[sub_resource type="Animation" id=53]
+
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ 0 ] }
+
+[sub_resource type="Animation" id=54]
+
+length = 0.6
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1, 1 ), "update":1, "values":[ 0, 1, 2, 3, 4, 5, 6 ] }
+
+[sub_resource type="Animation" id=55]
+
+length = 1.04
+loop = false
+step = 0.08
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.08, 0.16, 0.24, 0.32, 0.4, 0.48, 0.56, 0.64, 0.72, 0.8, 0.88, 0.96 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ), "update":1, "values":[ 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 ] }
+
+[sub_resource type="Curve2D" id=56]
+
+bake_interval = 5.0
+_data = { "points":Vector2Array( 0, 0, 0, 0, 1.53378, -0.0340576, 0, 0, 0, 0, -126.1, -0.0396118, 0, 0, 0, 0, 1.41283, -0.12809 ) }
+
+[sub_resource type="Animation" id=57]
+
+length = 0.7
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1, 1, 1 ), "update":1, "values":[ 0, 1, 2, 3, 4, 5, 6, 7 ] }
+
+[sub_resource type="Animation" id=58]
+
+length = 1.04
+loop = false
+step = 0.08
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.08, 0.16, 0.24, 0.32, 0.4, 0.48, 0.56, 0.64, 0.72, 0.8, 0.88, 0.96 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ), "update":1, "values":[ 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 ] }
+
+[node name="LevelThree" type="Node2D"]
+
+process/pause_mode = 1
+script/script = ExtResource( 1 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="Jack" type="RigidBody2D" parent="."]
+
+transform/pos = Vector2( -101.16, 199.522 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 2.84833, 0, 0, 4.02523, -0.227757, 0.3519 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+mode = 2
+mass = 15.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 7.5
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 100
+contact_monitor = true
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+script/script = ExtResource( 2 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="JackSprite" type="Sprite" parent="Jack"]
+
+process/pause_mode = 2
+transform/pos = Vector2( 0.105897, -3.6571 )
+transform/scale = Vector2( 0.486037, 0.486037 )
+z/z = 1
+texture = ExtResource( 3 )
+vframes = 8
+hframes = 17
+frame = 6
+script/script = ExtResource( 4 )
+
+[node name="anim" type="AnimationPlayer" parent="Jack/JackSprite"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/DamageFalling = SubResource( 2 )
+anims/DamageFallingLeft = SubResource( 3 )
+anims/DamageFallingRight = SubResource( 4 )
+anims/DamageIdle = SubResource( 5 )
+anims/DamageRunLeft = SubResource( 6 )
+anims/DamageRunRight = SubResource( 7 )
+anims/DeathLeft = SubResource( 8 )
+anims/DeathRight = SubResource( 9 )
+anims/Falling = SubResource( 10 )
+anims/FallingLeft = SubResource( 11 )
+anims/FallingRight = SubResource( 12 )
+anims/Idle = SubResource( 13 )
+anims/IdleLeft = SubResource( 14 )
+anims/IdleRight = SubResource( 15 )
+anims/InviFalling = SubResource( 16 )
+anims/InviFallingLeft = SubResource( 17 )
+anims/InviFallingRight = SubResource( 18 )
+anims/InviIdle = SubResource( 19 )
+anims/InviIdleLeft = SubResource( 20 )
+anims/InviIdleRight = SubResource( 21 )
+anims/InviRunningLeft = SubResource( 22 )
+anims/InviRunningRight = SubResource( 23 )
+anims/JumpShoot = SubResource( 24 )
+anims/JumpShootLeft = SubResource( 25 )
+anims/JumpShootRight = SubResource( 26 )
+anims/RunningLeft = SubResource( 27 )
+anims/RunningRight = SubResource( 28 )
+anims/anim = SubResource( 29 )
+next/DamageFallingLeft = ""
+next/DamageFallingRight = ""
+next/DamageRunRight = ""
+next/DeathLeft = ""
+next/DeathRight = ""
+next/FallingLeft = ""
+next/FallingRight = ""
+next/Idle = ""
+next/IdleLeft = ""
+next/InviFalling = ""
+next/InviFallingRight = ""
+next/InviIdle = ""
+next/InviIdleRight = ""
+next/InviRunningRight = ""
+next/JumpShootLeft = ""
+next/JumpShootRight = ""
+next/RunningLeft = ""
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="Feet" type="RayCast2D" parent="Jack"]
+
+transform/pos = Vector2( 0, -5.99654 )
+transform/scale = Vector2( 1, 1.07788 )
+enabled = true
+cast_to = Vector2( 0, 50 )
+layer_mask = 1
+type_mask = 15
+__meta__ = { "_edit_lock_":true }
+
+[node name="Camera2D" type="Camera2D" parent="Jack"]
+
+transform/pos = Vector2( 0, -0.0899301 )
+transform/scale = Vector2( 1, 1.29608 )
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit/left = -10000000
+limit/top = -10000000
+limit/right = 10000000
+limit/bottom = 10000000
+drag_margin/h_enabled = true
+drag_margin/v_enabled = true
+smoothing/enable = false
+smoothing/speed = 100.0
+drag_margin/left = 0.2
+drag_margin/top = 0.2
+drag_margin/right = 0.2
+drag_margin/bottom = 0.2
+__meta__ = { "_edit_lock_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jack"]
+
+transform/pos = Vector2( -0.227757, 0.3519 )
+transform/scale = Vector2( 2.84833, 4.02523 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+__meta__ = { "_edit_lock_":true }
+
+[node name="FeetRight" type="RayCast2D" parent="Jack"]
+
+transform/pos = Vector2( 13.9124, -2.37167 )
+enabled = true
+cast_to = Vector2( 0, 50 )
+layer_mask = 1
+type_mask = 15
+__meta__ = { "_edit_lock_":true }
+
+[node name="FeetLeft" type="RayCast2D" parent="Jack"]
+
+transform/pos = Vector2( -13.0876, -2.37167 )
+enabled = true
+cast_to = Vector2( 0, 50 )
+layer_mask = 1
+type_mask = 15
+__meta__ = { "_edit_lock_":true }
+
+[node name="Sounds" type="SamplePlayer" parent="Jack"]
+
+config/polyphony = 1
+config/samples = SubResource( 30 )
+default/volume_db = 0.0
+default/pitch_scale = 1.0
+default/pan = 0.0
+default/depth = 0.0
+default/height = 0.0
+default/filter/type = 0
+default/filter/cutoff = 5000.0
+default/filter/resonance = 1.0
+default/filter/gain = 1.0
+default/reverb_room = 2
+default/reverb_send = 0.0
+default/chorus_send = 0.0
+__meta__ = { "_edit_lock_":true }
+
+[node name="Boom" type="SamplePlayer" parent="Jack"]
+
+config/polyphony = 1
+config/samples = SubResource( 31 )
+default/volume_db = 0.0
+default/pitch_scale = 1.0
+default/pan = 0.0
+default/depth = 0.0
+default/height = 0.0
+default/filter/type = 0
+default/filter/cutoff = 5000.0
+default/filter/resonance = 1.0
+default/filter/gain = 1.0
+default/reverb_room = 2
+default/reverb_send = 0.0
+default/chorus_send = 0.0
+script/script = ExtResource( 11 )
+
+[node name="PlatformSmall2" type="StaticBody2D" parent="."]
+
+transform/pos = Vector2( 2032.66, 94.7459 )
+transform/scale = Vector2( 1.26316, 1.26316 )
+input/pickable = false
+shapes/0/shape = SubResource( 32 )
+shapes/0/transform = Matrix32( 7.30968, 0, 0, 1.55306, -0.122885, 2.83054 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 0.0
+bounce = 0.0
+__meta__ = { "_edit_lock_":true }
+
+[node name="Sprite" type="Sprite" parent="PlatformSmall2"]
+
+texture = ExtResource( 12 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformSmall2"]
+
+transform/pos = Vector2( -0.122885, 2.83054 )
+transform/scale = Vector2( 7.30968, 1.55306 )
+shape = SubResource( 32 )
+trigger = false
+_update_shape_index = 0
+__meta__ = { "_edit_lock_":true }
+
+[node name="PlatformSmall3" type="StaticBody2D" parent="."]
+
+transform/pos = Vector2( 2033.2, -160.771 )
+transform/scale = Vector2( 1.26316, 1.26316 )
+input/pickable = false
+shapes/0/shape = SubResource( 32 )
+shapes/0/transform = Matrix32( 7.30968, 0, 0, 1.55306, -0.122885, 2.83054 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 0.0
+bounce = 0.0
+__meta__ = { "_edit_lock_":true }
+
+[node name="Sprite" type="Sprite" parent="PlatformSmall3"]
+
+texture = ExtResource( 12 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformSmall3"]
+
+transform/pos = Vector2( -0.122885, 2.83054 )
+transform/scale = Vector2( 7.30968, 1.55306 )
+shape = SubResource( 32 )
+trigger = false
+_update_shape_index = 0
+__meta__ = { "_edit_lock_":true }
+
+[node name="PlatformSmall4" type="StaticBody2D" parent="."]
+
+transform/pos = Vector2( 2315.58, -244.108 )
+transform/scale = Vector2( 1.26316, 1.26316 )
+input/pickable = false
+shapes/0/shape = SubResource( 32 )
+shapes/0/transform = Matrix32( 7.30968, 0, 0, 1.55306, -0.122885, 2.83054 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 0.0
+bounce = 0.0
+__meta__ = { "_edit_lock_":true }
+
+[node name="Sprite" type="Sprite" parent="PlatformSmall4"]
+
+texture = ExtResource( 12 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformSmall4"]
+
+transform/pos = Vector2( -0.122885, 2.83054 )
+transform/scale = Vector2( 7.30968, 1.55306 )
+shape = SubResource( 32 )
+trigger = false
+_update_shape_index = 0
+__meta__ = { "_edit_lock_":true }
+
+[node name="PlatformSmall1" type="StaticBody2D" parent="."]
+
+transform/pos = Vector2( 1250.92, 97.3919 )
+transform/scale = Vector2( 1.26316, 1.26316 )
+input/pickable = false
+shapes/0/shape = SubResource( 32 )
+shapes/0/transform = Matrix32( 7.30968, 0, 0, 1.55306, -0.122885, 2.83054 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 0.0
+bounce = 0.0
+__meta__ = { "_edit_lock_":true }
+
+[node name="Sprite" type="Sprite" parent="PlatformSmall1"]
+
+texture = ExtResource( 12 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformSmall1"]
+
+transform/pos = Vector2( -0.122885, 2.83054 )
+transform/scale = Vector2( 7.30968, 1.55306 )
+shape = SubResource( 32 )
+trigger = false
+_update_shape_index = 0
+__meta__ = { "_edit_lock_":true }
+
+[node name="WallLeft1" type="StaticBody2D" parent="."]
+
+transform/pos = Vector2( -464.031, 296.328 )
+transform/scale = Vector2( 1.26316, 1.26316 )
+input/pickable = false
+shapes/0/shape = SubResource( 32 )
+shapes/0/transform = Matrix32( 0.494778, 0, 0, 58.3357, 95.0859, -276.3 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 0.0
+bounce = 0.0
+__meta__ = { "_edit_lock_":true }
+
+[node name="Sprite" type="Sprite" parent="WallLeft1"]
+
+transform/pos = Vector2( -271.989, -0.207977 )
+transform/scale = Vector2( 3.72019, 1 )
+texture = ExtResource( 13 )
+
+[node name="Sprite1" type="Sprite" parent="WallLeft1"]
+
+transform/pos = Vector2( -272.127, -496.174 )
+transform/scale = Vector2( 3.72142, 1 )
+texture = ExtResource( 13 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallLeft1"]
+
+transform/pos = Vector2( 95.0859, -276.3 )
+transform/scale = Vector2( 0.494778, 58.3357 )
+shape = SubResource( 32 )
+trigger = false
+_update_shape_index = 0
+
+[node name="WallRight1" type="StaticBody2D" parent="."]
+
+transform/pos = Vector2( 3756.91, 351.462 )
+transform/scale = Vector2( 1.26316, 1.26316 )
+input/pickable = false
+shapes/0/shape = SubResource( 32 )
+shapes/0/transform = Matrix32( 0.315203, 0, 0, 59.3195, -96.857, -270.148 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 0.0
+bounce = 0.0
+__meta__ = { "_edit_lock_":true }
+
+[node name="Sprite" type="Sprite" parent="WallRight1"]
+
+transform/pos = Vector2( 181.962, 0 )
+transform/scale = Vector2( 2.81962, 1 )
+texture = ExtResource( 13 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="Sprite2" type="Sprite" parent="WallRight1"]
+
+transform/pos = Vector2( 186.831, -984.287 )
+transform/scale = Vector2( 2.86812, 1 )
+texture = ExtResource( 13 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="Sprite1" type="Sprite" parent="WallRight1"]
+
+transform/pos = Vector2( 183.914, -496.174 )
+transform/scale = Vector2( 2.83898, 1 )
+texture = ExtResource( 13 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallRight1"]
+
+transform/pos = Vector2( -96.857, -270.148 )
+transform/scale = Vector2( 0.315203, 59.3195 )
+shape = SubResource( 32 )
+trigger = false
+_update_shape_index = 0
+__meta__ = { "_edit_lock_":true }
+
+[node name="Pillar" type="StaticBody2D" parent="."]
+
+transform/pos = Vector2( 1646.37, 14.5002 )
+transform/scale = Vector2( 1.26316, 1.26316 )
+input/pickable = false
+shapes/0/shape = SubResource( 32 )
+shapes/0/transform = Matrix32( 16.3526, 0, 0, 1.40405, 0.0826299, -30.7068 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 0.0
+bounce = 0.0
+__meta__ = { "_edit_lock_":true }
+
+[node name="Sprite" type="Sprite" parent="Pillar"]
+
+texture = ExtResource( 14 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pillar"]
+
+transform/pos = Vector2( 0.0826299, -30.7068 )
+transform/scale = Vector2( 16.3526, 1.40405 )
+shape = SubResource( 32 )
+trigger = false
+_update_shape_index = 0
+__meta__ = { "_edit_lock_":true }
+
+[node name="FloorShort1" type="StaticBody2D" parent="Pillar"]
+
+transform/pos = Vector2( -169.441, 200.782 )
+input/pickable = false
+shapes/0/shape = SubResource( 32 )
+shapes/0/transform = Matrix32( 0.602674, 0, 0, 21.3751, 0.0241922, -76.6798 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 0.0
+bounce = 0.0
+__meta__ = { "_edit_lock_":true }
+
+[node name="Sprite" type="Sprite" parent="Pillar/FloorShort1"]
+
+transform/pos = Vector2( -0.00305176, 0.216827 )
+texture = ExtResource( 15 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pillar/FloorShort1"]
+
+transform/pos = Vector2( 0.0241922, -76.6798 )
+transform/scale = Vector2( 0.602674, 21.3751 )
+shape = SubResource( 32 )
+trigger = false
+_update_shape_index = 0
+__meta__ = { "_edit_lock_":true }
+
+[node name="FloorShort4" type="StaticBody2D" parent="Pillar"]
+
+transform/pos = Vector2( -169.449, 492.809 )
+z/z = -2
+input/pickable = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 0.0
+bounce = 0.0
+
+[node name="Sprite" type="Sprite" parent="Pillar/FloorShort4"]
+
+transform/pos = Vector2( -0.00305176, 0.216827 )
+texture = ExtResource( 15 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="FloorShort5" type="StaticBody2D" parent="Pillar"]
+
+transform/pos = Vector2( 170.175, 492.809 )
+z/z = -2
+input/pickable = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 0.0
+bounce = 0.0
+
+[node name="Sprite" type="Sprite" parent="Pillar/FloorShort5"]
+
+transform/pos = Vector2( -0.335074, 0.216827 )
+transform/scale = Vector2( 0.944663, 1 )
+texture = ExtResource( 15 )
+flip_h = true
+
+[node name="FloorShort2" type="StaticBody2D" parent="Pillar"]
+
+transform/pos = Vector2( 229.354, -122.679 )
+input/pickable = false
+shapes/0/shape = SubResource( 32 )
+shapes/0/transform = Matrix32( 0.74158, 0, 0, 22.0544, -61.3227, 252.236 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 0.0
+bounce = 0.0
+__meta__ = { "_edit_lock_":true }
+
+[node name="Sprite" type="Sprite" parent="Pillar/FloorShort2"]
+
+transform/pos = Vector2( -59.8596, 323.676 )
+texture = ExtResource( 16 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pillar/FloorShort2"]
+
+transform/pos = Vector2( -61.3227, 252.236 )
+transform/scale = Vector2( 0.74158, 22.0544 )
+shape = SubResource( 32 )
+trigger = false
+_update_shape_index = 0
+__meta__ = { "_edit_lock_":true }
+
+[node name="FloorShort3" type="StaticBody2D" parent="Pillar"]
+
+transform/pos = Vector2( 352.127, -121.602 )
+input/pickable = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 0.0
+bounce = 0.0
+__meta__ = { "_edit_lock_":true }
+
+[node name="Sprite" type="Sprite" parent="Pillar/FloorShort3"]
+
+transform/pos = Vector2( -351.642, 419.514 )
+transform/scale = Vector2( 1.63981, 1 )
+texture = ExtResource( 13 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="Sprite1" type="Sprite" parent="Pillar/FloorShort3"]
+
+transform/pos = Vector2( -351.867, 915.631 )
+transform/scale = Vector2( 1.63981, 1 )
+texture = ExtResource( 13 )
+
+[node name="Pillar2" type="StaticBody2D" parent="."]
+
+transform/pos = Vector2( 2749.19, -230.93 )
+transform/scale = Vector2( 1.26316, 1.26316 )
+input/pickable = false
+shapes/0/shape = SubResource( 32 )
+shapes/0/transform = Matrix32( 16.3526, 0, 0, 1.40405, 0.0826299, -30.7068 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 0.0
+bounce = 0.0
+__meta__ = { "_edit_lock_":true }
+
+[node name="Sprite" type="Sprite" parent="Pillar2"]
+
+texture = ExtResource( 14 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pillar2"]
+
+transform/pos = Vector2( 0.0826299, -30.7068 )
+transform/scale = Vector2( 16.3526, 1.40405 )
+shape = SubResource( 32 )
+trigger = false
+_update_shape_index = 0
+__meta__ = { "_edit_lock_":true }
+
+[node name="FloorShort1" type="StaticBody2D" parent="Pillar2"]
+
+transform/pos = Vector2( -169.441, 200.782 )
+input/pickable = false
+shapes/0/shape = SubResource( 32 )
+shapes/0/transform = Matrix32( 0.602674, 0, 0, 55.7528, 0.0241922, 189.89 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 0.0
+bounce = 0.0
+__meta__ = { "_edit_lock_":true }
+
+[node name="Sprite" type="Sprite" parent="Pillar2/FloorShort1"]
+
+transform/pos = Vector2( -0.00305176, 0.216827 )
+texture = ExtResource( 15 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="Sprite1" type="Sprite" parent="Pillar2/FloorShort1"]
+
+transform/pos = Vector2( -0.00305176, 760.215 )
+z/z = -3
+texture = ExtResource( 15 )
+
+[node name="Sprite2" type="Sprite" parent="Pillar2/FloorShort1"]
+
+transform/pos = Vector2( 338.947, 760.181 )
+z/z = -3
+texture = ExtResource( 15 )
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pillar2/FloorShort1"]
+
+transform/pos = Vector2( 0.0241922, 189.89 )
+transform/scale = Vector2( 0.602674, 55.7528 )
+shape = SubResource( 32 )
+trigger = false
+_update_shape_index = 0
+
+[node name="FloorShort4" type="StaticBody2D" parent="Pillar2"]
+
+transform/pos = Vector2( -169.449, 492.809 )
+z/z = -2
+input/pickable = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 0.0
+bounce = 0.0
+
+[node name="Sprite" type="Sprite" parent="Pillar2/FloorShort4"]
+
+transform/pos = Vector2( -0.00305176, 0.216827 )
+texture = ExtResource( 15 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="FloorShort5" type="StaticBody2D" parent="Pillar2"]
+
+transform/pos = Vector2( 170.175, 492.809 )
+z/z = -2
+input/pickable = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 0.0
+bounce = 0.0
+
+[node name="Sprite" type="Sprite" parent="Pillar2/FloorShort5"]
+
+transform/pos = Vector2( -0.335074, 0.216827 )
+transform/scale = Vector2( 0.944663, 1 )
+texture = ExtResource( 15 )
+flip_h = true
+
+[node name="FloorShort2" type="StaticBody2D" parent="Pillar2"]
+
+transform/pos = Vector2( 229.354, -122.679 )
+input/pickable = false
+shapes/0/shape = SubResource( 32 )
+shapes/0/transform = Matrix32( 0.74158, 0, 0, 57.1052, -61.3227, 524.398 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 0.0
+bounce = 0.0
+__meta__ = { "_edit_lock_":true }
+
+[node name="Sprite" type="Sprite" parent="Pillar2/FloorShort2"]
+
+transform/pos = Vector2( -59.8596, 323.676 )
+texture = ExtResource( 16 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pillar2/FloorShort2"]
+
+transform/pos = Vector2( -61.3227, 524.398 )
+transform/scale = Vector2( 0.74158, 57.1052 )
+shape = SubResource( 32 )
+trigger = false
+_update_shape_index = 0
+__meta__ = { "_edit_lock_":true }
+
+[node name="FloorShort3" type="StaticBody2D" parent="Pillar2"]
+
+transform/pos = Vector2( 352.127, -121.602 )
+input/pickable = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 0.0
+bounce = 0.0
+__meta__ = { "_edit_lock_":true }
+
+[node name="Sprite" type="Sprite" parent="Pillar2/FloorShort3"]
+
+transform/pos = Vector2( -351.642, 419.514 )
+transform/scale = Vector2( 1.63981, 1 )
+texture = ExtResource( 13 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="Sprite1" type="Sprite" parent="Pillar2/FloorShort3"]
+
+transform/pos = Vector2( -351.867, 915.631 )
+transform/scale = Vector2( 1.63981, 1 )
+texture = ExtResource( 13 )
+
+[node name="Pillar1" type="StaticBody2D" parent="."]
+
+transform/pos = Vector2( 543.351, 181.19 )
+transform/scale = Vector2( 1.26316, 1.26316 )
+input/pickable = false
+shapes/0/shape = SubResource( 32 )
+shapes/0/transform = Matrix32( 16.3526, 0, 0, 1.40405, 0.0826299, -30.7068 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 0.0
+bounce = 0.0
+__meta__ = { "_edit_lock_":true }
+
+[node name="Sprite" type="Sprite" parent="Pillar1"]
+
+texture = ExtResource( 14 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pillar1"]
+
+transform/pos = Vector2( 0.0826299, -30.7068 )
+transform/scale = Vector2( 16.3526, 1.40405 )
+shape = SubResource( 32 )
+trigger = false
+_update_shape_index = 0
+__meta__ = { "_edit_lock_":true }
+
+[node name="FloorShort1" type="StaticBody2D" parent="Pillar1"]
+
+transform/pos = Vector2( -169.441, 200.782 )
+input/pickable = false
+shapes/0/shape = SubResource( 32 )
+shapes/0/transform = Matrix32( 0.602674, 0, 0, 21.3751, 0.0241922, -76.6798 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 0.0
+bounce = 0.0
+__meta__ = { "_edit_lock_":true }
+
+[node name="Sprite" type="Sprite" parent="Pillar1/FloorShort1"]
+
+transform/pos = Vector2( -0.00305176, 0.216827 )
+texture = ExtResource( 15 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pillar1/FloorShort1"]
+
+transform/pos = Vector2( 0.0241922, -76.6798 )
+transform/scale = Vector2( 0.602674, 21.3751 )
+shape = SubResource( 32 )
+trigger = false
+_update_shape_index = 0
+__meta__ = { "_edit_lock_":true }
+
+[node name="FloorShort2" type="StaticBody2D" parent="Pillar1"]
+
+transform/pos = Vector2( 229.354, -122.679 )
+input/pickable = false
+shapes/0/shape = SubResource( 32 )
+shapes/0/transform = Matrix32( 0.74158, 0, 0, 22.0544, -61.3227, 252.236 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 0.0
+bounce = 0.0
+__meta__ = { "_edit_lock_":true }
+
+[node name="Sprite" type="Sprite" parent="Pillar1/FloorShort2"]
+
+transform/pos = Vector2( -59.8596, 323.676 )
+texture = ExtResource( 16 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pillar1/FloorShort2"]
+
+transform/pos = Vector2( -61.3227, 252.236 )
+transform/scale = Vector2( 0.74158, 22.0544 )
+shape = SubResource( 32 )
+trigger = false
+_update_shape_index = 0
+__meta__ = { "_edit_lock_":true }
+
+[node name="FloorShort3" type="StaticBody2D" parent="Pillar1"]
+
+transform/pos = Vector2( 352.127, -121.602 )
+input/pickable = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 0.0
+bounce = 0.0
+__meta__ = { "_edit_lock_":true }
+
+[node name="Sprite" type="Sprite" parent="Pillar1/FloorShort3"]
+
+transform/pos = Vector2( -351.642, 419.514 )
+transform/scale = Vector2( 1.63981, 1 )
+texture = ExtResource( 13 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="Floor1" type="StaticBody2D" parent="."]
+
+transform/pos = Vector2( -131.074, 293.31 )
+transform/scale = Vector2( 1.26316, 1.26316 )
+input/pickable = false
+shapes/0/shape = SubResource( 32 )
+shapes/0/transform = Matrix32( 26.2792, 0, 0, 1.40405, 95.827, -30.7068 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 0.0
+bounce = 0.0
+__meta__ = { "_edit_lock_":true }
+
+[node name="Sprite" type="Sprite" parent="Floor1"]
+
+transform/pos = Vector2( 97.445, 0 )
+transform/scale = Vector2( 1.59782, 1 )
+texture = ExtResource( 14 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor1"]
+
+transform/pos = Vector2( 95.827, -30.7068 )
+transform/scale = Vector2( 26.2792, 1.40405 )
+shape = SubResource( 32 )
+trigger = false
+_update_shape_index = 0
+
+[node name="FloorShort3" type="StaticBody2D" parent="Floor1"]
+
+transform/pos = Vector2( 352.127, -121.602 )
+input/pickable = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 0.0
+bounce = 0.0
+__meta__ = { "_edit_lock_":true }
+
+[node name="Sprite" type="Sprite" parent="Floor1/FloorShort3"]
+
+transform/pos = Vector2( -626.007, 419.608 )
+transform/scale = Vector2( 6.32466, 1 )
+texture = ExtResource( 13 )
+
+[node name="Floor2" type="StaticBody2D" parent="."]
+
+transform/pos = Vector2( 971.926, 293.31 )
+transform/scale = Vector2( 1.26316, 1.26316 )
+input/pickable = false
+shapes/0/shape = SubResource( 32 )
+shapes/0/transform = Matrix32( 26.2792, 0, 0, 1.40405, 95.827, -30.7068 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 0.0
+bounce = 0.0
+__meta__ = { "_edit_lock_":true }
+
+[node name="Sprite" type="Sprite" parent="Floor2"]
+
+transform/pos = Vector2( 97.3877, 0 )
+transform/scale = Vector2( 1.59747, 1 )
+texture = ExtResource( 14 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor2"]
+
+transform/pos = Vector2( 95.827, -30.7068 )
+transform/scale = Vector2( 26.2792, 1.40405 )
+shape = SubResource( 32 )
+trigger = false
+_update_shape_index = 0
+
+[node name="FloorShort3" type="StaticBody2D" parent="Floor2"]
+
+transform/pos = Vector2( 352.127, -121.602 )
+input/pickable = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 0.0
+bounce = 0.0
+__meta__ = { "_edit_lock_":true }
+
+[node name="Sprite" type="Sprite" parent="Floor2/FloorShort3"]
+
+transform/pos = Vector2( -255.094, 419.608 )
+transform/scale = Vector2( 2.61586, 1 )
+texture = ExtResource( 13 )
+
+[node name="Floor3" type="StaticBody2D" parent="."]
+
+transform/pos = Vector2( 2074.93, 293.31 )
+transform/scale = Vector2( 1.26316, 1.26316 )
+input/pickable = false
+shapes/0/shape = SubResource( 32 )
+shapes/0/transform = Matrix32( 26.2792, 0, 0, 1.40405, 95.827, -30.7068 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 0.0
+bounce = 0.0
+__meta__ = { "_edit_lock_":true }
+
+[node name="Sprite" type="Sprite" parent="Floor3"]
+
+transform/pos = Vector2( 97.3877, 0 )
+transform/scale = Vector2( 1.59747, 1 )
+texture = ExtResource( 14 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor3"]
+
+transform/pos = Vector2( 95.827, -30.7068 )
+transform/scale = Vector2( 26.2792, 1.40405 )
+shape = SubResource( 32 )
+trigger = false
+_update_shape_index = 0
+
+[node name="FloorShort3" type="StaticBody2D" parent="Floor3"]
+
+transform/pos = Vector2( 352.127, -121.602 )
+input/pickable = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 0.0
+bounce = 0.0
+__meta__ = { "_edit_lock_":true }
+
+[node name="Sprite" type="Sprite" parent="Floor3/FloorShort3"]
+
+transform/pos = Vector2( -254.585, 419.608 )
+transform/scale = Vector2( 2.61402, 1 )
+texture = ExtResource( 13 )
+
+[node name="Floor4" type="StaticBody2D" parent="."]
+
+transform/pos = Vector2( 3177.82, 293.31 )
+transform/scale = Vector2( 1.26316, 1.26316 )
+input/pickable = false
+shapes/0/shape = SubResource( 32 )
+shapes/0/transform = Matrix32( 26.2792, 0, 0, 1.40405, 95.827, -30.7068 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 0.0
+bounce = 0.0
+__meta__ = { "_edit_lock_":true }
+
+[node name="Sprite" type="Sprite" parent="Floor4"]
+
+transform/pos = Vector2( 97.4075, 0 )
+transform/scale = Vector2( 1.59848, 1 )
+texture = ExtResource( 14 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor4"]
+
+transform/pos = Vector2( 95.827, -30.7068 )
+transform/scale = Vector2( 26.2792, 1.40405 )
+shape = SubResource( 32 )
+trigger = false
+_update_shape_index = 0
+__meta__ = { "_edit_lock_":true }
+
+[node name="FloorShort3" type="StaticBody2D" parent="Floor4"]
+
+transform/pos = Vector2( 352.127, -121.602 )
+input/pickable = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 0.0
+bounce = 0.0
+__meta__ = { "_edit_lock_":true }
+
+[node name="Sprite" type="Sprite" parent="Floor4/FloorShort3"]
+
+transform/pos = Vector2( -254.81, 419.608 )
+transform/scale = Vector2( 2.61269, 1 )
+texture = ExtResource( 13 )
+
+[node name="nextLevel" type="StaticBody2D" parent="."]
+
+transform/pos = Vector2( 3546.58, 213.817 )
+input/pickable = true
+shapes/0/shape = SubResource( 33 )
+shapes/0/transform = Matrix32( 0.999725, 0, 0, 1.4598, 0.942075, 12.4095 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = { "_edit_lock_":true }
+
+[node name="WarpZone" type="Sprite" parent="nextLevel"]
+
+texture = ExtResource( 17 )
+hframes = 14
+frame = 2
+__meta__ = { "_edit_lock_":true }
+
+[node name="warpZoneAnim" type="AnimationPlayer" parent="nextLevel/WarpZone"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/idle = SubResource( 34 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="nextLevel"]
+
+transform/pos = Vector2( 0.942075, 12.4095 )
+transform/scale = Vector2( 0.999725, 1.4598 )
+shape = SubResource( 33 )
+trigger = false
+_update_shape_index = 0
+__meta__ = { "_edit_lock_":true }
+
+[node name="HealthPickup" type="RigidBody2D" parent="."]
+
+transform/pos = Vector2( 2317.49, -280.584 )
+input/pickable = true
+shapes/0/shape = SubResource( 33 )
+shapes/0/transform = Matrix32( 3.24812, 0, 0, 3.27735, 0.0350739, 0.781506 )
+shapes/0/trigger = true
+collision/layers = 1
+collision/mask = 1
+mode = 3
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 1
+contact_monitor = true
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+script/script = ExtResource( 18 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="healthSprite" type="Sprite" parent="HealthPickup"]
+
+transform/scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 19 )
+hframes = 13
+__meta__ = { "_edit_lock_":true }
+
+[node name="healthAnim" type="AnimationPlayer" parent="HealthPickup/healthSprite"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/idle = SubResource( 35 )
+anims/open = SubResource( 36 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HealthPickup"]
+
+transform/pos = Vector2( 0.0350739, 0.781506 )
+transform/scale = Vector2( 3.24812, 3.27735 )
+shape = SubResource( 33 )
+trigger = true
+_update_shape_index = 0
+__meta__ = { "_edit_lock_":true }
+
+[node name="HealthSound" type="SamplePlayer" parent="HealthPickup"]
+
+config/polyphony = 1
+config/samples = SubResource( 30 )
+default/volume_db = 0.0
+default/pitch_scale = 1.0
+default/pan = 0.0
+default/depth = 0.0
+default/height = 0.0
+default/filter/type = 0
+default/filter/cutoff = 5000.0
+default/filter/resonance = 1.0
+default/filter/gain = 1.0
+default/reverb_room = 2
+default/reverb_send = 0.0
+default/chorus_send = 0.0
+__meta__ = { "_edit_lock_":true }
+
+[node name="HealthPickup1" type="RigidBody2D" parent="."]
+
+transform/pos = Vector2( 2323.5, 216.125 )
+input/pickable = true
+shapes/0/shape = SubResource( 33 )
+shapes/0/transform = Matrix32( 3.24812, 0, 0, 3.27735, 0.0350739, 0.781506 )
+shapes/0/trigger = true
+collision/layers = 1
+collision/mask = 1
+mode = 3
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 1
+contact_monitor = true
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+script/script = ExtResource( 20 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="healthSprite" type="Sprite" parent="HealthPickup1"]
+
+transform/scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 19 )
+hframes = 13
+__meta__ = { "_edit_lock_":true }
+
+[node name="healthAnim" type="AnimationPlayer" parent="HealthPickup1/healthSprite"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/idle = SubResource( 35 )
+anims/open = SubResource( 36 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HealthPickup1"]
+
+transform/pos = Vector2( 0.0350739, 0.781506 )
+transform/scale = Vector2( 3.24812, 3.27735 )
+shape = SubResource( 33 )
+trigger = true
+_update_shape_index = 0
+__meta__ = { "_edit_lock_":true }
+
+[node name="HealthSound" type="SamplePlayer" parent="HealthPickup1"]
+
+config/polyphony = 1
+config/samples = SubResource( 30 )
+default/volume_db = 0.0
+default/pitch_scale = 1.0
+default/pan = 0.0
+default/depth = 0.0
+default/height = 0.0
+default/filter/type = 0
+default/filter/cutoff = 5000.0
+default/filter/resonance = 1.0
+default/filter/gain = 1.0
+default/reverb_room = 2
+default/reverb_send = 0.0
+default/chorus_send = 0.0
+__meta__ = { "_edit_lock_":true }
+
+[node name="HealthPickup2" type="RigidBody2D" parent="."]
+
+transform/pos = Vector2( 2393.55, 215.678 )
+input/pickable = true
+shapes/0/shape = SubResource( 33 )
+shapes/0/transform = Matrix32( 3.24812, 0, 0, 3.27735, 0.0350739, 0.781506 )
+shapes/0/trigger = true
+collision/layers = 1
+collision/mask = 1
+mode = 3
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 1
+contact_monitor = true
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+script/script = ExtResource( 21 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="healthSprite" type="Sprite" parent="HealthPickup2"]
+
+transform/scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 19 )
+hframes = 13
+__meta__ = { "_edit_lock_":true }
+
+[node name="healthAnim" type="AnimationPlayer" parent="HealthPickup2/healthSprite"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/idle = SubResource( 35 )
+anims/open = SubResource( 36 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HealthPickup2"]
+
+transform/pos = Vector2( 0.0350739, 0.781506 )
+transform/scale = Vector2( 3.24812, 3.27735 )
+shape = SubResource( 33 )
+trigger = true
+_update_shape_index = 0
+__meta__ = { "_edit_lock_":true }
+
+[node name="HealthSound" type="SamplePlayer" parent="HealthPickup2"]
+
+config/polyphony = 1
+config/samples = SubResource( 30 )
+default/volume_db = 0.0
+default/pitch_scale = 1.0
+default/pan = 0.0
+default/depth = 0.0
+default/height = 0.0
+default/filter/type = 0
+default/filter/cutoff = 5000.0
+default/filter/resonance = 1.0
+default/filter/gain = 1.0
+default/reverb_room = 2
+default/reverb_send = 0.0
+default/chorus_send = 0.0
+__meta__ = { "_edit_lock_":true }
+
+[node name="HealthPickup3" type="RigidBody2D" parent="."]
+
+transform/pos = Vector2( 2464.07, 215.756 )
+input/pickable = true
+shapes/0/shape = SubResource( 33 )
+shapes/0/transform = Matrix32( 3.24812, 0, 0, 3.27735, 0.0350739, 0.781506 )
+shapes/0/trigger = true
+collision/layers = 1
+collision/mask = 1
+mode = 3
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 1
+contact_monitor = true
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+script/script = ExtResource( 22 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="healthSprite" type="Sprite" parent="HealthPickup3"]
+
+transform/scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 19 )
+hframes = 13
+__meta__ = { "_edit_lock_":true }
+
+[node name="healthAnim" type="AnimationPlayer" parent="HealthPickup3/healthSprite"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/idle = SubResource( 35 )
+anims/open = SubResource( 36 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HealthPickup3"]
+
+transform/pos = Vector2( 0.0350739, 0.781506 )
+transform/scale = Vector2( 3.24812, 3.27735 )
+shape = SubResource( 33 )
+trigger = true
+_update_shape_index = 0
+__meta__ = { "_edit_lock_":true }
+
+[node name="HealthSound" type="SamplePlayer" parent="HealthPickup3"]
+
+config/polyphony = 1
+config/samples = SubResource( 30 )
+default/volume_db = 0.0
+default/pitch_scale = 1.0
+default/pan = 0.0
+default/depth = 0.0
+default/height = 0.0
+default/filter/type = 0
+default/filter/cutoff = 5000.0
+default/filter/resonance = 1.0
+default/filter/gain = 1.0
+default/reverb_room = 2
+default/reverb_send = 0.0
+default/chorus_send = 0.0
+__meta__ = { "_edit_lock_":true }
+
+[node name="HealthPickup4" type="RigidBody2D" parent="."]
+
+transform/pos = Vector2( 1250.02, 215.682 )
+input/pickable = true
+shapes/0/shape = SubResource( 33 )
+shapes/0/transform = Matrix32( 3.24812, 0, 0, 3.27735, 0.0350739, 0.781506 )
+shapes/0/trigger = true
+collision/layers = 1
+collision/mask = 1
+mode = 3
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 1
+contact_monitor = true
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+script/script = ExtResource( 23 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="healthSprite" type="Sprite" parent="HealthPickup4"]
+
+transform/scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 19 )
+hframes = 13
+__meta__ = { "_edit_lock_":true }
+
+[node name="healthAnim" type="AnimationPlayer" parent="HealthPickup4/healthSprite"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/idle = SubResource( 35 )
+anims/open = SubResource( 36 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HealthPickup4"]
+
+transform/pos = Vector2( 0.0350739, 0.781506 )
+transform/scale = Vector2( 3.24812, 3.27735 )
+shape = SubResource( 33 )
+trigger = true
+_update_shape_index = 0
+__meta__ = { "_edit_lock_":true }
+
+[node name="HealthSound" type="SamplePlayer" parent="HealthPickup4"]
+
+config/polyphony = 1
+config/samples = SubResource( 30 )
+default/volume_db = 0.0
+default/pitch_scale = 1.0
+default/pan = 0.0
+default/depth = 0.0
+default/height = 0.0
+default/filter/type = 0
+default/filter/cutoff = 5000.0
+default/filter/resonance = 1.0
+default/filter/gain = 1.0
+default/reverb_room = 2
+default/reverb_send = 0.0
+default/chorus_send = 0.0
+__meta__ = { "_edit_lock_":true }
+
+[node name="EMFollow" type="Path2D" parent="."]
+
+transform/pos = Vector2( 3408.56, -63.4725 )
+curve = SubResource( 37 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="EMPath" type="PathFollow2D" parent="EMFollow"]
+
+transform/pos = Vector2( -0.227921, 0.449837 )
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = false
+cubic_interp = false
+loop = true
+lookahead = 4.0
+__meta__ = { "_edit_lock_":true }
+
+[node name="ErrorMessage" type="RigidBody2D" parent="EMFollow/EMPath"]
+
+transform/pos = Vector2( -0.239685, -2.72693 )
+transform/scale = Vector2( 1.24174, 1.18139 )
+input/pickable = false
+shapes/0/shape = SubResource( 38 )
+shapes/0/transform = Matrix32( 3.23767, 0, 0, 3.23535, -0.168308, 0.0277123 )
+shapes/0/trigger = true
+collision/layers = 1
+collision/mask = 1
+mode = 2
+mass = 1.0
+friction = 0.0
+bounce = 0.0
+gravity_scale = 0.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 100
+contact_monitor = true
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+script/script = ExtResource( 24 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EMFollow/EMPath/ErrorMessage"]
+
+transform/pos = Vector2( -0.168308, 0.0277123 )
+transform/scale = Vector2( 3.23767, 3.23535 )
+shape = SubResource( 38 )
+trigger = true
+_update_shape_index = 0
+__meta__ = { "_edit_lock_":true }
+
+[node name="HealthBar5" type="Sprite" parent="EMFollow/EMPath/ErrorMessage"]
+
+transform/pos = Vector2( 0, -45.3438 )
+transform/scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 25 )
+hframes = 6
+frame = 5
+
+[node name="errorHealthAnim" type="AnimationPlayer" parent="EMFollow/EMPath/ErrorMessage/HealthBar5"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/Health0 = SubResource( 39 )
+anims/Health1 = SubResource( 40 )
+anims/Health2 = SubResource( 41 )
+anims/Health3 = SubResource( 42 )
+anims/Health4 = SubResource( 43 )
+anims/Health5 = SubResource( 44 )
+next/Health1 = ""
+next/Health2 = ""
+next/Health3 = ""
+next/Health4 = ""
+next/Health5 = ""
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="ErrorMessageSprite" type="Sprite" parent="EMFollow/EMPath"]
+
+transform/pos = Vector2( 3.23114, -19.9217 )
+transform/scale = Vector2( 1, 0.999997 )
+texture = ExtResource( 26 )
+vframes = 4
+hframes = 5
+frame = 19
+script/script = ExtResource( 27 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="errorAnim" type="AnimationPlayer" parent="EMFollow/EMPath/ErrorMessageSprite"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/errorDeath = SubResource( 45 )
+anims/idleError = SubResource( 46 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "idleError"
+
+[node name="EMFollow1" type="Path2D" parent="."]
+
+transform/pos = Vector2( 1091.97, 182.19 )
+curve = SubResource( 47 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="EMPath" type="PathFollow2D" parent="EMFollow1"]
+
+transform/pos = Vector2( -3.32974, 1.11549 )
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = false
+cubic_interp = false
+loop = true
+lookahead = 4.0
+__meta__ = { "_edit_lock_":true }
+
+[node name="ErrorMessage1" type="RigidBody2D" parent="EMFollow1/EMPath"]
+
+transform/pos = Vector2( -0.239685, -2.72693 )
+transform/scale = Vector2( 1.24174, 1.18139 )
+input/pickable = false
+shapes/0/shape = SubResource( 38 )
+shapes/0/transform = Matrix32( 3.23767, 0, 0, 3.23535, -0.168308, 0.0277123 )
+shapes/0/trigger = true
+collision/layers = 1
+collision/mask = 1
+mode = 2
+mass = 1.0
+friction = 0.0
+bounce = 0.0
+gravity_scale = 0.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 100
+contact_monitor = true
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+script/script = ExtResource( 28 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EMFollow1/EMPath/ErrorMessage1"]
+
+transform/pos = Vector2( -0.168308, 0.0277123 )
+transform/scale = Vector2( 3.23767, 3.23535 )
+shape = SubResource( 38 )
+trigger = true
+_update_shape_index = 0
+__meta__ = { "_edit_lock_":true }
+
+[node name="HealthBar5" type="Sprite" parent="EMFollow1/EMPath/ErrorMessage1"]
+
+transform/pos = Vector2( 0, -45.3438 )
+transform/scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 25 )
+hframes = 6
+frame = 5
+
+[node name="errorHealthAnim" type="AnimationPlayer" parent="EMFollow1/EMPath/ErrorMessage1/HealthBar5"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/Health0 = SubResource( 39 )
+anims/Health1 = SubResource( 40 )
+anims/Health2 = SubResource( 41 )
+anims/Health3 = SubResource( 42 )
+anims/Health4 = SubResource( 43 )
+anims/Health5 = SubResource( 44 )
+next/Health1 = ""
+next/Health2 = ""
+next/Health3 = ""
+next/Health4 = ""
+next/Health5 = ""
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="ErrorMessageSprite" type="Sprite" parent="EMFollow1/EMPath"]
+
+transform/pos = Vector2( 3.23114, -19.9217 )
+transform/scale = Vector2( 1, 0.999997 )
+texture = ExtResource( 26 )
+vframes = 4
+hframes = 5
+frame = 6
+script/script = ExtResource( 29 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="errorAnim" type="AnimationPlayer" parent="EMFollow1/EMPath/ErrorMessageSprite"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/errorDeath = SubResource( 45 )
+anims/idleError = SubResource( 46 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "idleError"
+
+[node name="CursorFollow" type="Path2D" parent="."]
+
+transform/pos = Vector2( 687.963, 93.6181 )
+curve = SubResource( 48 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="CursorPath" type="PathFollow2D" parent="CursorFollow"]
+
+transform/pos = Vector2( -0.934036, -0.144028 )
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = false
+cubic_interp = false
+loop = true
+lookahead = 4.0
+__meta__ = { "_edit_lock_":true }
+
+[node name="Cursor" type="RigidBody2D" parent="CursorFollow/CursorPath"]
+
+transform/pos = Vector2( -0.239685, -2.72693 )
+transform/scale = Vector2( 1.24174, 1.18139 )
+input/pickable = false
+shapes/0/shape = SubResource( 38 )
+shapes/0/transform = Matrix32( 3.23767, 0, 0, 3.23535, -0.168308, 0.0277123 )
+shapes/0/trigger = true
+collision/layers = 1
+collision/mask = 1
+mode = 2
+mass = 1.0
+friction = 0.0
+bounce = 0.0
+gravity_scale = 0.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 100
+contact_monitor = true
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+script/script = ExtResource( 30 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CursorFollow/CursorPath/Cursor"]
+
+transform/pos = Vector2( -0.168308, 0.0277123 )
+transform/scale = Vector2( 3.23767, 3.23535 )
+shape = SubResource( 38 )
+trigger = true
+_update_shape_index = 0
+__meta__ = { "_edit_lock_":true }
+
+[node name="HealthBar5" type="Sprite" parent="CursorFollow/CursorPath/Cursor"]
+
+transform/pos = Vector2( 0, -45.3438 )
+transform/scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 25 )
+hframes = 6
+
+[node name="cursorHealthAnim" type="AnimationPlayer" parent="CursorFollow/CursorPath/Cursor/HealthBar5"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/Health0 = SubResource( 39 )
+anims/Health1 = SubResource( 40 )
+anims/Health2 = SubResource( 41 )
+anims/Health3 = SubResource( 42 )
+anims/Health4 = SubResource( 43 )
+anims/Health5 = SubResource( 44 )
+next/Health1 = ""
+next/Health2 = ""
+next/Health3 = ""
+next/Health4 = ""
+next/Health5 = ""
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="CursorSprite" type="Sprite" parent="CursorFollow/CursorPath"]
+
+transform/pos = Vector2( 2.64716, -36.565 )
+transform/scale = Vector2( 1, 0.999997 )
+texture = ExtResource( 31 )
+vframes = 7
+hframes = 3
+script/script = ExtResource( 32 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="cursorAnim" type="AnimationPlayer" parent="CursorFollow/CursorPath/CursorSprite"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/Hop = SubResource( 46 )
+anims/cursorDeath = SubResource( 45 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "Hop"
+
+[node name="CursorFollow1" type="Path2D" parent="."]
+
+transform/pos = Vector2( 2898.22, -318.712 )
+curve = SubResource( 48 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="CursorPath" type="PathFollow2D" parent="CursorFollow1"]
+
+transform/pos = Vector2( -0.934036, -0.144028 )
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = false
+cubic_interp = false
+loop = true
+lookahead = 4.0
+__meta__ = { "_edit_lock_":true }
+
+[node name="Cursor1" type="RigidBody2D" parent="CursorFollow1/CursorPath"]
+
+transform/pos = Vector2( -0.239685, -2.72693 )
+transform/scale = Vector2( 1.24174, 1.18139 )
+input/pickable = false
+shapes/0/shape = SubResource( 38 )
+shapes/0/transform = Matrix32( 3.23767, 0, 0, 3.23535, -0.168308, 0.0277123 )
+shapes/0/trigger = true
+collision/layers = 1
+collision/mask = 1
+mode = 2
+mass = 1.0
+friction = 0.0
+bounce = 0.0
+gravity_scale = 0.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 100
+contact_monitor = true
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+script/script = ExtResource( 33 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CursorFollow1/CursorPath/Cursor1"]
+
+transform/pos = Vector2( -0.168308, 0.0277123 )
+transform/scale = Vector2( 3.23767, 3.23535 )
+shape = SubResource( 38 )
+trigger = true
+_update_shape_index = 0
+__meta__ = { "_edit_lock_":true }
+
+[node name="HealthBar5" type="Sprite" parent="CursorFollow1/CursorPath/Cursor1"]
+
+transform/pos = Vector2( 0, -45.3438 )
+transform/scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 25 )
+hframes = 6
+frame = 5
+
+[node name="cursorHealthAnim" type="AnimationPlayer" parent="CursorFollow1/CursorPath/Cursor1/HealthBar5"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/Health0 = SubResource( 39 )
+anims/Health1 = SubResource( 40 )
+anims/Health2 = SubResource( 41 )
+anims/Health3 = SubResource( 42 )
+anims/Health4 = SubResource( 43 )
+anims/Health5 = SubResource( 44 )
+next/Health1 = ""
+next/Health2 = ""
+next/Health3 = ""
+next/Health4 = ""
+next/Health5 = ""
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="CursorSprite" type="Sprite" parent="CursorFollow1/CursorPath"]
+
+transform/pos = Vector2( 2.64716, -36.565 )
+transform/scale = Vector2( 1, 0.999997 )
+texture = ExtResource( 31 )
+vframes = 7
+hframes = 3
+script/script = ExtResource( 34 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="cursorAnim" type="AnimationPlayer" parent="CursorFollow1/CursorPath/CursorSprite"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/Hop = SubResource( 46 )
+anims/cursorDeath = SubResource( 45 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "Hop"
+
+[node name="WiresFollow" type="Path2D" parent="."]
+
+transform/pos = Vector2( 3382.01, 182.987 )
+curve = SubResource( 49 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="WiresPath" type="PathFollow2D" parent="WiresFollow"]
+
+transform/pos = Vector2( 1.03905, -2.13465 )
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = false
+cubic_interp = false
+loop = true
+lookahead = 4.0
+__meta__ = { "_edit_lock_":true }
+
+[node name="WiresGuy" type="RigidBody2D" parent="WiresFollow/WiresPath"]
+
+transform/pos = Vector2( 0.220841, 0.0816746 )
+transform/scale = Vector2( 1.24174, 1.18139 )
+input/pickable = false
+shapes/0/shape = SubResource( 38 )
+shapes/0/transform = Matrix32( 2.93617, 0, 0, 4.12892, 0.0166745, -7.96317 )
+shapes/0/trigger = true
+collision/layers = 1
+collision/mask = 1
+mode = 2
+mass = 1.0
+friction = 0.0
+bounce = 0.0
+gravity_scale = 0.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 100
+contact_monitor = true
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+script/script = ExtResource( 35 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WiresFollow/WiresPath/WiresGuy"]
+
+transform/pos = Vector2( 0.0166745, -7.96317 )
+transform/scale = Vector2( 2.93617, 4.12892 )
+shape = SubResource( 38 )
+trigger = true
+_update_shape_index = 0
+__meta__ = { "_edit_lock_":true }
+
+[node name="HealthBar3" type="Sprite" parent="WiresFollow/WiresPath/WiresGuy"]
+
+transform/pos = Vector2( 0, -68.5632 )
+transform/scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 36 )
+hframes = 4
+frame = 3
+
+[node name="wiresHealthAnim" type="AnimationPlayer" parent="WiresFollow/WiresPath/WiresGuy/HealthBar3"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/Health0 = SubResource( 50 )
+anims/Health1 = SubResource( 51 )
+anims/Health2 = SubResource( 52 )
+anims/Health3 = SubResource( 53 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="WiresSprite" type="Sprite" parent="WiresFollow/WiresPath"]
+
+transform/pos = Vector2( 2.776, -9.78835 )
+transform/scale = Vector2( 0.310435, 0.295347 )
+texture = ExtResource( 37 )
+vframes = 4
+hframes = 5
+frame = 7
+script/script = ExtResource( 38 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="wiresAnim" type="AnimationPlayer" parent="WiresFollow/WiresPath/WiresSprite"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/Bounce = SubResource( 54 )
+anims/wiresDeath = SubResource( 55 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "Bounce"
+
+[node name="VirusFollow" type="Path2D" parent="."]
+
+transform/pos = Vector2( 2089.88, -218.81 )
+curve = SubResource( 56 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="VirusPath" type="PathFollow2D" parent="VirusFollow"]
+
+transform/pos = Vector2( 1.53378, -0.0340576 )
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = false
+cubic_interp = false
+loop = true
+lookahead = 4.0
+__meta__ = { "_edit_lock_":true }
+
+[node name="Virus" type="RigidBody2D" parent="VirusFollow/VirusPath"]
+
+transform/pos = Vector2( 0.220841, 0.0816746 )
+transform/scale = Vector2( 1.24174, 1.18139 )
+input/pickable = false
+shapes/0/shape = SubResource( 38 )
+shapes/0/transform = Matrix32( 1.77373, 0, 0, 2.9387, 0.587974, -3.01189 )
+shapes/0/trigger = true
+collision/layers = 1
+collision/mask = 1
+mode = 2
+mass = 1.0
+friction = 0.0
+bounce = 0.0
+gravity_scale = 0.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 100
+contact_monitor = true
+sleeping = false
+can_sleep = true
+velocity/linear = Vector2( 0, 0 )
+velocity/angular = 0.0
+damp_override/linear = -1.0
+damp_override/angular = -1.0
+script/script = ExtResource( 39 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VirusFollow/VirusPath/Virus"]
+
+transform/pos = Vector2( 0.587974, -3.01189 )
+transform/scale = Vector2( 1.77373, 2.9387 )
+shape = SubResource( 38 )
+trigger = true
+_update_shape_index = 0
+__meta__ = { "_edit_lock_":true }
+
+[node name="HealthBar3" type="Sprite" parent="VirusFollow/VirusPath/Virus"]
+
+transform/pos = Vector2( 0.805321, -45.7088 )
+transform/scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 36 )
+hframes = 4
+frame = 3
+
+[node name="virusHealthAnim" type="AnimationPlayer" parent="VirusFollow/VirusPath/Virus/HealthBar3"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/Health0 = SubResource( 50 )
+anims/Health1 = SubResource( 51 )
+anims/Health2 = SubResource( 52 )
+anims/Health3 = SubResource( 53 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="VirusSprite" type="Sprite" parent="VirusFollow/VirusPath"]
+
+transform/pos = Vector2( 0.776003, -10.7883 )
+transform/scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 40 )
+vframes = 7
+hframes = 3
+frame = 20
+script/script = ExtResource( 41 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="virusAnim" type="AnimationPlayer" parent="VirusFollow/VirusPath/VirusSprite"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/Fly = SubResource( 57 )
+anims/virusDeath = SubResource( 58 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "Fly"
+
+[node name="WarpZone1" type="Sprite" parent="."]
+
+transform/pos = Vector2( -143.852, 213.898 )
+texture = ExtResource( 17 )
+hframes = 14
+frame = 2
+__meta__ = { "_edit_lock_":true }
+
+[node name="warpZoneAnim" type="AnimationPlayer" parent="WarpZone1"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/idle = SubResource( 34 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "idle"
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+layer = -1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+scroll/offset = Vector2( 0, 0 )
+scroll/base_offset = Vector2( 0, 0 )
+scroll/base_scale = Vector2( 1, 1 )
+scroll/limit_begin = Vector2( 0, 0 )
+scroll/limit_end = Vector2( 0, 0 )
+scroll/ignore_camera_zoom = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+transform/pos = Vector2( -142.96, -77.4344 )
+motion/scale = Vector2( 0.5, 0.5 )
+motion/offset = Vector2( 0, 0 )
+motion/mirroring = Vector2( 0, 0 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+
+transform/pos = Vector2( -171.24, 516.225 )
+transform/scale = Vector2( 0.5, 0.5 )
+z/z = -10
+texture = ExtResource( 42 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="Sprite4 4" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+
+transform/pos = Vector2( 2142.76, 516.225 )
+transform/scale = Vector2( 0.5, 0.5 )
+z/z = -10
+texture = ExtResource( 42 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="Sprite3 3" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+
+transform/pos = Vector2( 985.76, 516.225 )
+transform/scale = Vector2( 0.5, 0.5 )
+z/z = -10
+texture = ExtResource( 42 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="Sprite34" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+
+transform/pos = Vector2( 3298.76, 516.225 )
+transform/scale = Vector2( 0.5, 0.5 )
+z/z = -10
+texture = ExtResource( 42 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="Sprite1" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+
+transform/pos = Vector2( -169.734, -119.453 )
+transform/scale = Vector2( 0.5, 0.5 )
+z/z = -20
+texture = ExtResource( 42 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="Sprite4 3" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+
+transform/pos = Vector2( 2144.27, -119.453 )
+transform/scale = Vector2( 0.5, 0.5 )
+z/z = -20
+texture = ExtResource( 42 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="Sprite3 2" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+
+transform/pos = Vector2( 987.266, -119.453 )
+transform/scale = Vector2( 0.5, 0.5 )
+z/z = -20
+texture = ExtResource( 42 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="Sprite33" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+
+transform/pos = Vector2( 3300.27, -119.453 )
+transform/scale = Vector2( 0.5, 0.5 )
+z/z = -20
+texture = ExtResource( 42 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="Sprite2" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+
+transform/pos = Vector2( -168.215, -755.206 )
+transform/scale = Vector2( 0.5, 0.5 )
+z/z = -30
+texture = ExtResource( 42 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="Sprite4" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+
+transform/pos = Vector2( 2145.78, -755.206 )
+transform/scale = Vector2( 0.5, 0.5 )
+z/z = -30
+texture = ExtResource( 42 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="Sprite3" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+
+transform/pos = Vector2( 988.784, -755.206 )
+transform/scale = Vector2( 0.5, 0.5 )
+z/z = -30
+texture = ExtResource( 42 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="Sprite4 2" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+
+transform/pos = Vector2( 3301.78, -755.206 )
+transform/scale = Vector2( 0.5, 0.5 )
+z/z = -30
+texture = ExtResource( 42 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="StreamPlayer" type="StreamPlayer" parent="."]
+
+stream/stream = ExtResource( 43 )
+stream/play = false
+stream/loop = true
+stream/volume_db = -1.0
+stream/autoplay = true
+stream/paused = false
+stream/loop_restart_time = 0.0
+stream/buffering_ms = 500
+
+[connection signal="body_enter" from="Jack" to="Jack" method="_on_Jack_body_enter"]
+
+[connection signal="body_enter" from="HealthPickup" to="HealthPickup" method="_on_HealthPickup_body_enter"]
+
+[connection signal="body_enter" from="HealthPickup1" to="HealthPickup1" method="_on_HealthPickup1_body_enter"]
+
+[connection signal="body_enter" from="HealthPickup2" to="HealthPickup2" method="_on_HealthPickup2_body_enter"]
+
+[connection signal="body_enter" from="HealthPickup3" to="HealthPickup3" method="_on_HealthPickup3_body_enter"]
+
+[connection signal="body_enter" from="HealthPickup4" to="HealthPickup4" method="_on_HealthPickup4_body_enter"]
+
+

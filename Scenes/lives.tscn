@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://Assets/Sprites/Animated/Health.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Scripts/LivesSprite.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Sprites/Static/Health Background.png" type="Texture" id=3]
+
+[node name="Lives" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+
+[node name="Lives" type="Sprite" parent="CanvasLayer"]
+
+transform/pos = Vector2( 64.4537, 40.5263 )
+texture = ExtResource( 1 )
+hframes = 7
+script/script = ExtResource( 2 )
+
+[node name="LivesBackground" type="Sprite" parent="CanvasLayer"]
+
+transform/pos = Vector2( 64, 41 )
+z/z = -1
+texture = ExtResource( 3 )
+
+
